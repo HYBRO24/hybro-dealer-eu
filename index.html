@@ -245,6 +245,9 @@ function chg(id,delta){
 
 // ═══ PHOTOS ═══
 function photoSlug(name){
+  // ONYX towel dryers reuse existing photos named hybro-s-<size>-<color>
+  const m = name.match(/^ONYX\s+(1K|1L|2M|3M)\s+(\w+)$/i);
+  if(m) return `hybro-s-${m[1].toLowerCase()}-${m[2].toLowerCase()}`;
   return name.toLowerCase().trim().replace(/[()]/g,'').replace(/\s+/g,'-');
 }
 function openPhoto(name){
